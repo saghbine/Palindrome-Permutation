@@ -52,7 +52,7 @@ bool Palindrome_Permutation(string &s) // s is input string
                 if(counter[i]%2 == 1) // if select int parity is odd
                     return false; // s isn't a palindrome permutation
             }
-            else // if parity is odd
+            else // else parity is odd
             {
                 if(counter[i]%2 == 1) // if select int parity is odd
                     count++; // allow only one odd pair
