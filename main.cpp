@@ -1,9 +1,8 @@
 //
 //  main.cpp
-//  Palindrome Permutation
+//  CTCI 1.4 Palindrome Permutation
 //
 //  Created by daniel saghbine on 12/15/24.
-//  CTCI 1.4 Palindrome Permutation
 
 #include <iostream>
 using namespace std;
@@ -12,14 +11,13 @@ bool Palindrome_Permutation(string &s);
 
 int main()
 {
-    string str;
-    
     cout<<"problem\n-------\n\tGiven a string, write a function to check if it is a permutation of a palindrome. A palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words. You can ignore casing and non-letter characters.\n\n";
     
     cout<<"input\n-----\n\tType: ";
+    string str;
     getline(cin, str);
     
-    cout<<"\noutput\n------\n\tThe string is"<<(Palindrome_Permutation(str) ? "" : "n't")<<" a palindrome permutation.\n\n";
+    cout<<"\noutput\n------\n\t\""<<str<<"\" is"<<(Palindrome_Permutation(str) ? "" : "n't")<<" a palindrome permutation.\n\n";
     
     cout<<"solution\n--------\n\tAuxiliary space complexity: O(a), a is alphabet size; time complexity: O(n + a).\n\n";
     
@@ -29,9 +27,9 @@ int main()
 bool Palindrome_Permutation(string &s) // s is input string
 {
     const int ALPHA=26; // alphabet size
-    int counter[ALPHA]={0}; // zero counter, int array of ALPHA size
-    int parity=0; // total mechanism
-    int count=0; // counter mechanism
+    int counter[ALPHA]={0}; // counter, int array of ALPHA size
+    int parity=0; // total parity for even/odd check
+    int count=0; // index mechanism for counter
     
     for(int i=0; i < s.size(); i++) // check char at indices 0...size-1 in s
     {
@@ -57,7 +55,7 @@ bool Palindrome_Permutation(string &s) // s is input string
             else // if parity is odd
             {
                 if(counter[i]%2 == 1) // if select int parity is odd
-                    count++; // only one odd pair
+                    count++; // allow only one odd pair
                 
                 if(count > 1) // if there is more than one odd pair
                     return false; // s isn't a palindrome permutation
