@@ -48,14 +48,14 @@ bool Palindrome_Permutation(string &s) // s is input string
     {
         if(counter[i] != 0) // if select int isn't 0
         {
-            if(parity%2 == 0) // if parity is even
+            if(parity%2 == 0) // if even parity
             {
-                if(counter[i]%2 == 1) // if select int parity is odd
+                if(counter[i]%2 == 1) // if select int has odd parity
                     return false; // s isn't a palindrome permutation
             }
-            else // else parity is odd
+            else // else odd parity
             {
-                if(counter[i]%2 == 1) // if select int parity is odd
+                if(counter[i]%2 == 1) // if select int has odd parity
                     count++; // allow only one odd pair
                 
                 if(count > 1) // if there is more than one odd pair
